@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtividade</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="img/dw.png">
+</head>
+<body>
+    <div class="header">
+        <h3>Produtividade em kg/min por item</h3>
+        <img class="img" src="img/dw.png" alt="">
+    </div>
+    <div class="container">
+        <div class="chart-container">
+            <canvas id="productivityChart"></canvas>
+        </div>
+        <div class="controls">
+            <a href=""><button class="meta">Meta por item</button></a>
+            <label for="dataSelect">Produto:</label>
+            <select id="dataSelect">
+                <option value="666666">666666</option>
+                <option value="777777">777777</option>
+                <option value="888888">888888</option>
+            </select>
+        </div>
+    </div>
+    <div class="notFooter">
+        <p></p>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
