@@ -1,22 +1,27 @@
 const dataCodes = {
-    '666666': [
-        { month: 'Janeiro', value: 15 },
+    '322450': [
+        { month: 'Janeiro', value: 15.9 },
         { month: 'Fevereiro', value: 19 },
-        { month: 'Março', value: 20 }
+        { month: 'Março', value: 20.9 },
+        { month: 'April', value: 20 },
+        { month: 'Maio', value: 25},
+        { month: 'Junho', value: 12}
     ],
-    '777777': [
+    '325651': [
         { month: 'Janeiro', value: 10 },
         { month: 'Fevereiro', value: 20 },
-        { month: 'Março', value: 25 },
+        { month: 'Março', value: 21.54 },
         { month: 'April', value: 20 },
-        { month: 'Maio', value: 25}
+        { month: 'Maio', value: 22},
+        { month: 'Junho', value: 25}
     ],
-    '888888': [
+    '325652': [
         { month: 'Janeiro', value: 5 },
         { month: 'Fevereiro', value: 12 },
         { month: 'Março', value: 19 },
         { month: 'Abril', value: 21},
-        { month: 'Maio', value: 25}
+        { month: 'Maio', value: 23},
+        { month: 'Junho', value: 25}
     ]
 };
 const filterIncreasedProductivity = (data) => {
@@ -25,7 +30,6 @@ const filterIncreasedProductivity = (data) => {
         return entry.value > array[index - 1].value;
     });
 };
-
 const updateChart = (chart, data) => {
     const labels = data.map(d => d.month);
     const dataValues = data.map(d => d.value);
@@ -34,7 +38,6 @@ const updateChart = (chart, data) => {
     chart.data.datasets[0].data = dataValues;
     chart.update();
 };
-
 const ctx = document.getElementById('productivityChart').getContext('2d');
 const productivityChart = new Chart(ctx, {
     type: 'bar',
@@ -70,7 +73,6 @@ const productivityChart = new Chart(ctx, {
         }
     }
 });
-
 document.getElementById('dataSelect').addEventListener('change', (event) => {
     const selectedCode = event.target.value;
     const rawData = dataCodes[selectedCode] || [];
@@ -78,6 +80,6 @@ document.getElementById('dataSelect').addEventListener('change', (event) => {
     updateChart(productivityChart, filteredData);
 });
 
-const initialCode = '666666';
+const initialCode = '322450';
 const initialData = filterIncreasedProductivity(dataCodes[initialCode]);
 updateChart(productivityChart, initialData);
